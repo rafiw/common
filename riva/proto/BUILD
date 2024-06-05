@@ -28,6 +28,12 @@ cc_grpc_library(
 )
 
 cc_grpc_library(
+    name = "riva_grpc_shmem",
+    srcs = [":riva_shmem.proto"],
+    deps = [],
+)
+
+cc_grpc_library(
     name = "riva_grpc_asr",
     srcs = [":riva_asr.proto"],
     deps = [":riva_audio_proto", ":riva_common_proto"],
