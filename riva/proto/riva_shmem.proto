@@ -35,14 +35,15 @@ message AllocateCudaSharableMemoryRequest {
     string name = 1;
     uint64 device_id = 2;
     uint64 byte_size = 3;
+    bytes raw_handle = 4;
 }
 
-message AllocateCudaSharableMemoryResponse {
+message AllocateCudaSharableMemoryResponse {}
     // handler to open IPC
-    bytes raw_handle = 1;
+//    bytes raw_handle = 1;
     // actual memory allocated
-    uint64 byte_size = 2;
-}
+//    uint64 byte_size = 2;
+//}
 
 message FreeCudaSharableMemoryRequest {
   string name = 1;

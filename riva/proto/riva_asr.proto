@@ -54,15 +54,11 @@ service RivaSpeechRecognition {
 message StreamingSharedMemoryRecognizeRequest {
   // The streaming request, which is either a streaming config or audio content.
   oneof streaming_request {
-      // Provides information to the recognizer that specifies how to process the
-      // request. The first `StreamingRecognizeRequest` message must contain a
-      // `streaming_config`  message.
-      StreamingRecognitionConfig streaming_config = 1;
+    StreamingRecognitionConfig streaming_config = 1;
 
-      SharedMemoryProperties shared_memory_properties  = 2;
+    SharedMemoryProperties shared_memory_properties  = 2;
+    // returned in the corresponding responses.
   }
-    // The ID to be associated with the request. If provided, this will be
-  // returned in the corresponding responses.
   RequestId id = 100;
 }
 
@@ -233,6 +229,7 @@ message StreamingRecognitionConfig {
 message SharedMemoryProperties {
   int32 offset = 1;
   int32 byte_size = 2;
+  string share_name = 3;
 }
 
 // Config to enable speaker diarization.
